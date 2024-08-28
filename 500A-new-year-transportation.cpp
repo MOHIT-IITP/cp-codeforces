@@ -9,7 +9,7 @@ using namespace std;
 void solve(){
   int n, t;
   cin >> n >> t;
-  int c[n];
+  vector<int> c(n);
   int p = 0;
   for( int i = 0;i < n; i++) cin >> c[i];
   while(p < t - 1) p += c[p];
