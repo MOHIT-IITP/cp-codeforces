@@ -10,28 +10,35 @@ using namespace std;
   cin.tie(0);                                                                  \
   cout.tie(0);
 
-int solve() {
-  int n;
-  cin >> n;
-  string s;
-  cin >> s;
-  int h = n / 2;
-  for (int i = 0; i < h; i++) {
-    int a = s[i] - 'a' + 1;
-    int b = s[n - i - 1] - 'a' + 1;
-    if (abs(a - b) != 1 || abs(a - b) != 2) {
-      return "NO";
-    }
-  }
-  return "YES";
-}
-
 int main() {
   fast;
-  int t;
-  cin >> t;
-  while (t--) {
-    solve();
+  int tc, n, h;
+  string str;
+  bool k;
+
+  cin >> tc;
+  cin.ignore();
+
+  while (tc--) {
+    cin >> n;
+    cin >> str;
+
+    h = n / 2;
+    k = true;
+
+    for (int i = 0; i < h; i++) {
+      int d = abs(str[i] - str[n - i - 1]);
+
+      if (!(d == 0 || d == 2)) {
+        k = false;
+        cout << "NO\n";
+        break;
+      }
+    }
+
+    if (k) {
+      cout << "YES\n";
+      return 0;
+    }
   }
-  return 0;
 }
