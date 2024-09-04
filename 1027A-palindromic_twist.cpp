@@ -1,67 +1,37 @@
+// MOHIT-IITP
 #include <bits/stdc++.h>
 using namespace std;
-
-#define sf scanf
-#define pf printf
-#define ssf sscanf
-#define spf sprintf
-#define fsf fscanf
-#define fpf fprintf
-#define fast ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0)
-#define scase sf("%d", &tc)
-#define sn sf("%d", &n)
-#define whilecase while (tc--)
-#define eof while (cin >> n)
-#define forloop for (pos = 1; pos <= tc; pos++)
-#define arrayloop (i = 0; i < n; i++)
-#define cinstr cin >> str
-#define getstr getline(cin, str)
-#define pcase pf("Case %d: ", pos)
-#define vi vector<int>
-#define pii pair<int, int>
-#define psi pair<string, int>
-#define mii map<int, int>
+#define ll long long
 #define pb push_back
-#define in insert
-#define llu unsigned long long
-#define lld long long
-#define U unsigned int
-#define endl "\n"
+#define MOD1 998244353
+#define MOD 1000000007
+#define fast                                                                   \
+  ios_base::sync_with_stdio(0);                                                \
+  cin.tie(0);                                                                  \
+  cout.tie(0);
 
-const int MOD = 1000000007;
-const int MAX = 1000005;
-
-int SetBit(int n, int x) { return n | (1 << x); }
-int ClearBit(int n, int x) { return n & ~(1 << x); }
-int ToggleBit(int n, int x) { return n ^ (1 << x); }
-bool CheckBit(int n, int x) { return (bool)(n & (1 << x)); }
-
-int main(void) {
-  int tc, n, i, h, d;
-  char str[105];
-  bool k;
-
-  sf("%d", &tc);
-
-  while (tc--) {
-    sf("%d\n%s", &n, str);
-
-    h = n / 2;
-    k = true;
-
-    for (i = 0; i < h; i++) {
-      d = (int)(abs(str[i] - str[n - i - 1]));
-
-      if (!(d == 0 || d == 2)) {
-        k = false;
-        pf("NO\n");
-        break;
-      }
+int solve() {
+  int n;
+  cin >> n;
+  string s;
+  cin >> s;
+  int h = n / 2;
+  for (int i = 0; i < h; i++) {
+    int a = s[i] - 'a' + 1;
+    int b = s[n - i - 1] - 'a' + 1;
+    if (abs(a - b) != 1 || abs(a - b) != 2) {
+      return "NO";
     }
-
-    if (k)
-      pf("YES\n");
   }
+  return "YES";
+}
 
+int main() {
+  fast;
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
   return 0;
 }
