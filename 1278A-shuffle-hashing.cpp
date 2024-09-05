@@ -1,8 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#define pb push_back
 
 int main() {
-  fast;
   ll t;
   cin >> t;
   while (t--) {
@@ -13,12 +14,11 @@ int main() {
     bool ans = 0;
     cin >> s1 >> s2;
 
-    sort(all(s1));
+    sort(s1.begin(), s1.end());
 
-    for (i = 0; i + l(s1) <= l(s2); i++) {
-      s3 = s2.substr(i, l(s1));
-      sort(all(s3));
-      // cout<<s1<<" "<<s3<<endl;
+    for (i = 0; i + s1.size() <= s2.size(); i++) {
+      s3 = s2.substr(i, s1.size());
+      sort(s3.begin(), s3.end());
       if (s1 == s3) {
         ans = 1;
         break;
