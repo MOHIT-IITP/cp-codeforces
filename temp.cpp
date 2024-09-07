@@ -14,5 +14,6 @@ void solve() {}
 
 int main() {
   fast;
+  cout << "hello world";
   return 0;
 }
