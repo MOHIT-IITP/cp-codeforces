@@ -10,10 +10,21 @@ using namespace std;
   cin.tie(0);                                                                  \
   cout.tie(0);
 
-void solve() {}
+void solve() {
+  int n, m;
+  double A, B;
+  cin >> n >> m;
+  A = n, B = m;
+  int ans = ceil((A * B) / 2);
+  cout << ans << endl;
+}
 
 int main() {
   fast;
-  cout << "hello world";
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
   return 0;
 }
