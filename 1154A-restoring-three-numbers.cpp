@@ -11,12 +11,15 @@ using namespace std;
   cout.tie(0);
 
 void solve() {
-  int a[4];
+  vector<int> vec;
   for(int i =0;i<4;i++){
-    cin>>a[i];
+    int x;
+    cin>>x;
+    vec.pb(x);
   }
+  sort(vec.begin(), vec.end());
   for(int i =0;i<3;i++){
-    cout<<a[3]-a[i];
+    cout<<vec[3]-vec[i]<<" ";
   }
 }
 
