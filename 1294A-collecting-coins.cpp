@@ -22,7 +22,6 @@ void solve() {
 }
 
 int main() {
-  fast;
   int t;
   cin >> t;
   while (t--) {
