@@ -7,7 +7,11 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    // your code here
+    int n;cin>>n;
+    vector<int> vec(n-1);
+    for(int i=0; i<n-1 ; i++) cin>>vec[i];
+    int ans =  accumulate(vec.begin(), vec.end(), 0);
+    cout<<-ans<<endl;
 }
 
 int main() {
