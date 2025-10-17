@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isNonDec(const vector<char> &v) {
+    for (int i = 1; i < v.size(); ++i) {
+        if (v[i] < v[i-1]) return false;
+    }
+    return true;
+}
+
+bool isPali(const string &s) {
+    int l = 0, r = s.size() - 1;
+    while (l < r) {
+        if (s[l] != s[r]) return false;
+        l++; r--;
+    }
+    return true;
+}
+
+void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+
+    for (int ma = 0; ma < (1 << n); ++ma) {
+        vector<int> selected_indices;
+        vector<char> p;
+        string remaining;
+
+        for (int i = 0; i < n; ++i) {
+            if (ma & (1 << i)) {
+                selected_indices.push_back(i + 1);
+                p.push_back(s[i]);
+            } else {
+                remaining += s[i];
+            }
+        }
+
+        if (isNonDec(p) && isPali(remaining)) {
+            cout << selected_indices.size() << "\n";
+            for (int idx : selected_indices) cout << idx << " ";
+            cout << "\n";
+            return;
+        }
+    }
+
+    cout << "-1\n";
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t; 
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
