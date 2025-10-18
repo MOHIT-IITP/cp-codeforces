@@ -8,36 +8,26 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-  int n; cin>>n;
-  int k; cin>>k;
-  string s;cin>>s;
+    int n,k;cin>>n>>k;
+    vector<char>a(n);
+    for(auto &x : a) cin>>x;
 
-  map<char, int> mp;
-  for(auto it : s){
-    mp[it]++;
-  }
-
-  for(int i = 0 ; i < mp.size() ; i++){
-    auto it = prev(mp.end()-i);
-    int second = it->second;
-    k -= second;
-    if(k<=0){
-      break;
+    unordered_map<char,int> mp;
+    for(auto it : a){
+        mp[it]++;
     }
-  }
 
-  int count = 0 ;
-  for(auto [key, value] : mp){
-    if(value % 2 != 0 ){
-      count++;
+    int countOdd = 0 ;
+    for(auto [key, value]: mp){
+        countOdd += value % 2;
     }
-  }
-  if(count != 1){
-    cout<<"No"<<el;
-  }else{
-    cout<<"Yes"<<el;
-  }
-
+    if(countOdd-k == 1){
+        cout<<"YES"<<el;
+    }else if(countOdd > k){
+        cout<<"NO"<<el;
+    }else{
+        cout<<"YES"<<el;
+    }
 }
 
 int main() {
