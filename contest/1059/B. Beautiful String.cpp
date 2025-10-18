@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool isNonDec(const vector<char> &v) {
+bool incr(const vector<char> &v) {
     for (int i = 1; i < v.size(); ++i) {
         if (v[i] < v[i-1]) return false;
     }
@@ -24,22 +24,22 @@ void solve() {
     cin >> s;
 
     for (int ma = 0; ma < (1 << n); ++ma) {
-        vector<int> selected_indices;
+        vector<int> sel_ind;
         vector<char> p;
         string remaining;
 
         for (int i = 0; i < n; ++i) {
             if (ma & (1 << i)) {
-                selected_indices.push_back(i + 1);
+                sel_ind.push_back(i + 1);
                 p.push_back(s[i]);
             } else {
                 remaining += s[i];
             }
         }
 
-        if (isNonDec(p) && isPali(remaining)) {
-            cout << selected_indices.size() << "\n";
-            for (int idx : selected_indices) cout << idx << " ";
+        if (incr(p) && isPali(remaining)) {
+            cout << sel_ind.size() << "\n";
+            for (int idx : sel_ind) cout << idx << " ";
             cout << "\n";
             return;
         }

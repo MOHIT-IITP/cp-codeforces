@@ -8,7 +8,47 @@ using namespace std;
 #define MOD 1000000007
 
 void solve() {
-    // your code here
+    int x, y;cin>>x>>y;
+    int k1, k2;cin>>k1>>k2;
+    int q1, q2;cin>>q1>>q2;
+    set<pair<int, int>> king;
+    set<pair<int, int>> queen;
+
+    // +x +y
+    // +x -y
+    // -x +y
+    // -x -y
+    //
+    // +y +x
+    // +y -x
+    // -y +x
+    // -y -x
+    
+    king.insert({k1+x , k2+y});
+    king.insert({k1+x , k2-y});
+    king.insert({k1-x , k2+y});
+    king.insert({k1-x , k2-y});
+    king.insert({k1+y , k2+x});
+    king.insert({k1+y , k2-x});
+    king.insert({k1-y , k2+x});
+    king.insert({k1-y , k2-x});
+
+    queen.insert({q1+x , q2+y});
+    queen.insert({q1+x , q2-y});
+    queen.insert({q1-x , q2+y});
+    queen.insert({q1-x , q2-y});
+    queen.insert({q1+y , q2+x});
+    queen.insert({q1+y , q2-x});
+    queen.insert({q1-y , q2+x});
+    queen.insert({q1-y , q2-x});
+
+    int count = 0 ;
+    for(auto prk : king){
+        if(queen.find(prk) != queen.end()){
+            count++;
+        }
+    }
+    cout<<count<<el;
 }
 
 int main() {
